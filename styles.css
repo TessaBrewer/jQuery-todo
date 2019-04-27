@@ -1,4 +1,8 @@
-.createdDiv
+.createdDivA
 {
     border: dotted 69px pink;
+}
+.createdDivB
+{
+    border: solid 2px lime;
 }

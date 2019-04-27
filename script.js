@@ -2,6 +2,19 @@ const textAreaInput = document.getElementById("textAreaInput");
 const submitButton = document.getElementById("submitButton");
 const mainDiv = document.getElementById("mainDiv");
 
+function checkFunction(event)
+{
+    if(this.checked)
+    {
+        event.currentTarget.parentElement.classList.remove("createdDivA");
+        event.currentTarget.parentElement.classList.add("createdDivB");
+    }else
+    {
+        event.currentTarget.parentElement.classList.remove("createdDivB");
+        event.currentTarget.parentElement.classList.add("createdDivA");
+    }
+}
+
 function deleteStuff(event)
 {
     mainDiv.removeChild(event.currentTarget.parentElement);
@@ -13,7 +26,7 @@ function createStuff()
 
     const createdDiv = document.createElement("div");
     createdDiv.appendChild(document.createTextNode(textAreaInput.value));
-    createdDiv.classList.add("createdDiv");
+    createdDiv.classList.add("createdDivA");
 
     const amDone = document.createElement("input");
     amDone.setAttribute("type", "checkbox");
@@ -28,6 +41,7 @@ function createStuff()
     mainDiv.appendChild(createdDiv);
 
     deleteButton.addEventListener("click", deleteStuff);
+    amDone.addEventListener("change", checkFunction);
     console.log("Done");
 }
 
