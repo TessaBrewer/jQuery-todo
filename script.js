@@ -1,5 +1,5 @@
 const textAreaInput = document.getElementById("textAreaInput");
-const submitButton = docuemnt.getElementById("submitButton");
+const submitButton = document.getElementById("submitButton");
 const mainDiv = document.getElementById("mainDiv");
 
 function deleteStuff(event)
@@ -14,9 +14,16 @@ function createStuff()
     const createdDiv = document.createElement("div");
     createdDiv.appendChild(document.createTextNode(textAreaInput.value));
     createdDiv.classList.add("createdDiv");
+
+    const amDone = document.createElement("input");
+    amDone.setAttribute("type", "checkbox");
+    amDone.classList.add("amDone");
+
     const deleteButton = document.createElement("button");
     deleteButton.innerHTML = "Delete";
     deleteButton.classList.add("deleteButton");
+
+    createdDiv.appendChild(amDone);
     createdDiv.appendChild(deleteButton);
     mainDiv.appendChild(createdDiv);
 
